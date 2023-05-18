@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verificação de caracteres</title>
+</head>
+<body>
+  <label for="entrada">Digite um caractere:</label>
+  <input type="text" id="entrada">
+  <p>Letras: <span id="letras"></span></p>
+  <p>Números: <span id="numeros"></span></p>
+
+  <script>
+    const entrada = document.getElementById("entrada");
+    const letras = document.getElementById("letras");
+    const numeros = document.getElementById("numeros");
+
+    entrada.addEventListener("input", function() {
+      const valor = this.value;
+      const ultimoCaractere = valor.charAt(valor.length - 1);
+
+      if (/[a-zA-Z]/.test(ultimoCaractere)) {
+        letras.textContent += ultimoCaractere;
+      } else if (/[0-9]/.test(ultimoCaractere)) {
+        numeros.textContent += ultimoCaractere;
+      }
+    });
+  </script>
+</body>
+</html>

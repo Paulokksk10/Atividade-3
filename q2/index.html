@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verificação de cores</title>
+</head>
+<body>
+  <label for="entrada">Digite uma cor:</label>
+  <input type="text" id="entrada">
+  <p>Cores: <span id="cores"></span></p>
+
+  <script>
+    const entrada = document.getElementById("entrada");
+    const cores = document.getElementById("cores");
+
+    const coresNomeValor = {
+      vermelho: "#ff0000",
+      verde: "#00ff00",
+      azul: "#0000ff",
+      amarelo: "#ffff00",
+      laranja: "#ffa500",
+      roxo: "#800080",
+      rosa: "#ff69b4"
+    };
+
+    entrada.addEventListener("input", function() {
+      const cor = this.value.toLowerCase();
+
+      if (cor in coresNomeValor) {
+        const valor = coresNomeValor[cor];
+        cores.style.backgroundColor = valor;
+        cores.textContent = cor + " (" + valor + ")";
+      } else {
+        cores.style.backgroundColor = "";
+        cores.textContent = "";
+      }
+    });
+  </script>
+</body>
+</html>
